@@ -200,7 +200,7 @@ Amqp::consume('queue-name', function ($message, $resolver) {
 
 ## Credits
 
-* Some concepts were used from https://github.com/mookofe/tail
+* Package based on https://github.com/bschmitt/laravel-amqp
 
 
 ## License
