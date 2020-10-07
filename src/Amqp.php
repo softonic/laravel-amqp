@@ -42,7 +42,7 @@ class Amqp
      */
     public function batchBasicPublish(string $routing, $message)
     {
-        $self::batchMessages[] = [
+        self::$batchMessages[] = [
             'routing' => $routing, 
             'message' => $message,
         ];
@@ -63,7 +63,7 @@ class Amqp
             ->setup();
 
         $publishData = [];
-        foreach($self::batchMessages as $messageData) {
+        foreach(self::$batchMessages as $messageData) {
             if (is_string($messageData['message'])) {
                 $messageData['message'] = new Message($messageData, ['content_type' => 'text/plain', 'delivery_mode' => 2]);
             }
