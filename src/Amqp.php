@@ -11,7 +11,7 @@ use Softonic\Amqp\Request;
  */
 class Amqp
 {
-    protected static array $batchMessages;
+    protected static array $batchMessages = [];
 
     /**
      * @param string $routing
@@ -42,7 +42,10 @@ class Amqp
      */
     public function batchBasicPublish(string $routing, $message)
     {
-        $self::batchMessages[] = compact('routing', 'message');
+        $self::batchMessages[] = [
+            'routing' => $routing, 
+            'message' => $message
+        ];
     }
 
     /**
