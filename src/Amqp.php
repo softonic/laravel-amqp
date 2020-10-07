@@ -44,7 +44,7 @@ class Amqp
     {
         $self::batchMessages[] = [
             'routing' => $routing, 
-            'message' => $message
+            'message' => $message,
         ];
     }
 
