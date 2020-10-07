@@ -18,6 +18,7 @@ Add the following to your require part within the composer.json:
 
 ```js
 "softonic/laravel-amqp": "2.*" (Laravel >= 5.5)
+"softonic/laravel-amqp": "1.*" (Laravel < 5.5)
 ```
 ```batch
 $ php composer update
