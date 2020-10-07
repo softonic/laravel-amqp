@@ -10,7 +10,6 @@ AMQP wrapper for Laravel and Lumen to publish and consume messages especially fr
   - Add message to queues easily
   - Listen queues with useful options
 
-
 ## Installation
 
 ### Composer
@@ -89,8 +88,9 @@ Add Facade Support for Lumen 5.2+
 
 ```php
 //...
-$app->withFacades();
-class_alias(\Illuminate\Support\Facades\App::class, 'App');
+$app->withFacades(true, [
+    'Bschmitt\Amqp\Facades\Amqp' => 'Amqp',
+]);
 //...
 ```
 
@@ -194,7 +194,7 @@ Amqp::consume('queue-name', function ($message, $resolver) {
     'exchange_type' => 'fanout',
     'queue_force_declare' => true,
     'queue_exclusive' => true,
-    'persistent' => true// required if you want to listen forever
+    'persistent' => true // required if you want to listen forever
 ]);
 ```
 
