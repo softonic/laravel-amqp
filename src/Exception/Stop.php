@@ -1,6 +1,6 @@
 <?php
 
-namespace Bschmitt\Amqp\Exception;
+namespace Softonic\Amqp\Exception;
 
 /**
  * @author Björn Schmitt <code@bjoern.io>

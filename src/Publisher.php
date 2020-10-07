@@ -1,6 +1,6 @@
 <?php
 
-namespace Bschmitt\Amqp;
+namespace Softonic\Amqp;
 
 /**
  * @author Björn Schmitt <code@bjoern.io>

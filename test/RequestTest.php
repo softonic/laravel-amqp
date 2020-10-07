@@ -1,10 +1,10 @@
 <?php
 
-namespace Bschmitt\Amqp\Test;
+namespace Softonic\Amqp\Test;
 
 use \Mockery;
-use Bschmitt\Amqp\Request;
-use Bschmitt\Amqp\Context;
+use Softonic\Amqp\Request;
+use Softonic\Amqp\Context;
 
 
 class RequestTest extends BaseTestCase
@@ -21,18 +21,18 @@ class RequestTest extends BaseTestCase
 
         $this->channelMock = Mockery::mock('\PhpAmqpLib\Channel\AMQPChannel');
         $this->connectionMock = Mockery::mock('\PhpAmqpLib\Connection\AMQPSSLConnection');
-        // partial mock of \Bschmitt\Amqp\Publisher
+        // partial mock of \Softonic\Amqp\Publisher
         // we want all methods except [connect,getChannel] to be real
-        $this->requestMock = Mockery::mock('\Bschmitt\Amqp\Request[connect,getChannel]', [$this->configRepository]);
+        $this->requestMock = Mockery::mock('\Softonic\Amqp\Request[connect,getChannel]', [$this->configRepository]);
 
         // channel and connection are both protected and without changing the source this was the only way to mock them
-        $this->setProtectedProperty('\Bschmitt\Amqp\Request', $this->requestMock, 'channel', $this->channelMock);
-        $this->setProtectedProperty('\Bschmitt\Amqp\Request', $this->requestMock, 'connection', $this->connectionMock);
+        $this->setProtectedProperty('\Softonic\Amqp\Request', $this->requestMock, 'channel', $this->channelMock);
+        $this->setProtectedProperty('\Softonic\Amqp\Request', $this->requestMock, 'connection', $this->connectionMock);
 
     }
 
     /**
-     * @expectedException Bschmitt\Amqp\Exception\Configuration
+     * @expectedException Softonic\Amqp\Exception\Configuration
      */
     public function testIfEmptyExchangeThrowsAnException()
     {
@@ -142,7 +142,7 @@ class RequestTest extends BaseTestCase
 
         $messageCount = 4;
         $queueInfo = ['queue-name', $messageCount]; 
-        $this->setProtectedProperty('\Bschmitt\Amqp\Request', $this->requestMock, 'queueInfo', $queueInfo);
+        $this->setProtectedProperty('\Softonic\Amqp\Request', $this->requestMock, 'queueInfo', $queueInfo);
         $this->assertEquals($this->requestMock->getQueueMessageCount(), $messageCount);
 
     }

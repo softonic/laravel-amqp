@@ -1,6 +1,6 @@
 <?php
 
-namespace Bschmitt\Amqp;
+namespace Softonic\Amqp;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Connection\AMQPSSLConnection;

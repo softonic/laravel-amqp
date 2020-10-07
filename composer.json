@@ -11,12 +11,12 @@
     "package",
     "message queue",
     "Björn Schmitt",
-    "bschmitt"
+    "softonic"
   ],
   "license": "MIT",
   "support": {
-      "issues": "https://github.com/bschmitt/laravel-amqp/issues",
-      "source": "https://github.com/bschmitt/laravel-amqp"
+      "issues": "https://github.com/softonic/laravel-amqp/issues",
+      "source": "https://github.com/softonic/laravel-amqp"
   },
   "authors": [
     {
@@ -36,21 +36,21 @@
   },
   "autoload": {
     "psr-4": {
-      "Bschmitt\\Amqp\\": "src/"
+      "Softonic\\Amqp\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Bschmitt\\Amqp\\Test\\": "test/"
+      "Softonic\\Amqp\\Test\\": "test/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Bschmitt\\Amqp\\AmqpServiceProvider"
+        "Softonic\\Amqp\\AmqpServiceProvider"
       ],
       "aliases": {
-        "Amqp": "Bschmitt\\Amqp\\Facades\\Amqp"
+        "Amqp": "Softonic\\Amqp\\Facades\\Amqp"
       }
     }
   },

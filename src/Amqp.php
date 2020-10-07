@@ -1,10 +1,10 @@
 <?php
 
-namespace Bschmitt\Amqp;
+namespace Softonic\Amqp;
 
 use Closure;
-use Bschmitt\Amqp\Request;
-use Bschmitt\Amqp\Message;
+use Softonic\Amqp\Request;
+use Softonic\Amqp\Message;
 
 /**
  * @author Björn Schmitt <code@bjoern.io>
@@ -21,7 +21,7 @@ class Amqp
         $properties['routing'] = $routing;
 
         /* @var Publisher $publisher */
-        $publisher = app()->make('Bschmitt\Amqp\Publisher');
+        $publisher = app()->make('Softonic\Amqp\Publisher');
         $publisher
             ->mergeProperties($properties)
             ->setup();
@@ -45,7 +45,7 @@ class Amqp
         $properties['queue'] = $queue;
 
         /* @var Consumer $consumer */
-        $consumer = app()->make('Bschmitt\Amqp\Consumer');
+        $consumer = app()->make('Softonic\Amqp\Consumer');
         $consumer
             ->mergeProperties($properties)
             ->setup();
@@ -57,7 +57,7 @@ class Amqp
     /**
      * @param string $body
      * @param array  $properties
-     * @return \Bschmitt\Amqp\Message
+     * @return \Softonic\Amqp\Message
      */
     public function message($body, $properties = [])
     {

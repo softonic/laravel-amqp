@@ -1,6 +1,6 @@
 <?php
 
-namespace Bschmitt\Amqp;
+namespace Softonic\Amqp;
 
 use Illuminate\Config\Repository;
 use Closure;

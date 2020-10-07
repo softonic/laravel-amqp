@@ -1,9 +1,9 @@
 <?php
 
-namespace Bschmitt\Amqp\Test;
+namespace Softonic\Amqp\Test;
 
 use \Mockery;
-use Bschmitt\Amqp\Publisher;
+use Softonic\Amqp\Publisher;
 use Illuminate\Config\Repository;
 
 /**
@@ -20,15 +20,15 @@ class PublisherTest extends BaseTestCase
     {
         parent::setUp();
 
-        // partial mock of \Bschmitt\Amqp\Publisher
+        // partial mock of \Softonic\Amqp\Publisher
         // we want all methods except [connect] to be real
-        $this->publisherMock = Mockery::mock('\Bschmitt\Amqp\Publisher[connect]', [$this->configRepository]);
+        $this->publisherMock = Mockery::mock('\Softonic\Amqp\Publisher[connect]', [$this->configRepository]);
         // set connection and channel properties
         $this->channelMock = Mockery::mock('\PhpAmqpLib\Channel\AMQPChannel');
         $this->connectionMock = Mockery::mock('\PhpAmqpLib\Connection\AMQPSSLConnection');
         // channel and connection are both protected and without changing the source this was the only way to mock them
-        $this->setProtectedProperty('\Bschmitt\Amqp\Publisher', $this->publisherMock, 'channel', $this->channelMock);
-        $this->setProtectedProperty('\Bschmitt\Amqp\Publisher', $this->publisherMock, 'connection', $this->connectionMock);
+        $this->setProtectedProperty('\Softonic\Amqp\Publisher', $this->publisherMock, 'channel', $this->channelMock);
+        $this->setProtectedProperty('\Softonic\Amqp\Publisher', $this->publisherMock, 'connection', $this->connectionMock);
 
     }
 

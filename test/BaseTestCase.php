@@ -1,6 +1,6 @@
 <?php
 
-namespace Bschmitt\Amqp\Test;
+namespace Softonic\Amqp\Test;
 
 use \Mockery;
 use Illuminate\Config\Repository;

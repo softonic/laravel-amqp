@@ -1,9 +1,9 @@
 <?php
 
-namespace Bschmitt\Amqp;
+namespace Softonic\Amqp;
 
-use Bschmitt\Amqp\Consumer;
-use Bschmitt\Amqp\Publisher;
+use Softonic\Amqp\Consumer;
+use Softonic\Amqp\Publisher;
 use Illuminate\Support\ServiceProvider;
 
 class AmqpServiceProvider extends ServiceProvider
@@ -23,9 +23,9 @@ class AmqpServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind('Amqp', 'Bschmitt\Amqp\Amqp');
+        $this->app->bind('Amqp', 'Softonic\Amqp\Amqp');
         if (!class_exists('Amqp')) {
-            class_alias('Bschmitt\Amqp\Facades\Amqp', 'Amqp');
+            class_alias('Softonic\Amqp\Facades\Amqp', 'Amqp');
         }
 
         $this->publishes([
@@ -40,10 +40,10 @@ class AmqpServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Bschmitt\Amqp\Publisher', function ($app) {
+        $this->app->singleton('Softonic\Amqp\Publisher', function ($app) {
             return new Publisher(config());
         });
-        $this->app->singleton('Bschmitt\Amqp\Consumer', function ($app) {
+        $this->app->singleton('Softonic\Amqp\Consumer', function ($app) {
             return new Consumer(config());
         });
     }
@@ -55,6 +55,6 @@ class AmqpServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['Amqp', 'Bschmitt\Amqp\Publisher', 'Bschmitt\Amqp\Consumer'];
+        return ['Amqp', 'Softonic\Amqp\Publisher', 'Softonic\Amqp\Consumer'];
     }
 }

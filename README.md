@@ -1,9 +1,9 @@
-# bschmitt/laravel-amqp
+# softonic/laravel-amqp
 AMQP wrapper for Laravel and Lumen to publish and consume messages especially from RabbitMQ
 
-[![Build Status](https://travis-ci.org/bschmitt/laravel-amqp.svg?branch=master)](https://travis-ci.org/bschmitt/laravel-amqp)
-[![Latest Stable Version](https://poser.pugx.org/bschmitt/laravel-amqp/v/stable.svg)](https://packagist.org/packages/bschmitt/laravel-amqp)
-[![License](https://poser.pugx.org/bschmitt/laravel-amqp/license.svg)](https://packagist.org/packages/bschmitt/laravel-amqp)
+[![Build Status](https://travis-ci.org/softonic/laravel-amqp.svg?branch=master)](https://travis-ci.org/softonic/laravel-amqp)
+[![Latest Stable Version](https://poser.pugx.org/softonic/laravel-amqp/v/stable.svg)](https://packagist.org/packages/softonic/laravel-amqp)
+[![License](https://poser.pugx.org/softonic/laravel-amqp/license.svg)](https://packagist.org/packages/softonic/laravel-amqp)
 
 ## Features
   - Advanced queue configuration
@@ -17,8 +17,7 @@ AMQP wrapper for Laravel and Lumen to publish and consume messages especially fr
 Add the following to your require part within the composer.json: 
 
 ```js
-"bschmitt/laravel-amqp": "2.*" (Laravel >= 5.5)
-"bschmitt/laravel-amqp": "1.*" (Laravel < 5.5)
+"softonic/laravel-amqp": "2.*" (Laravel >= 5.5)
 ```
 ```batch
 $ php composer update
@@ -27,7 +26,7 @@ $ php composer update
 or
 
 ```
-$ php composer require bschmitt/laravel-amqp
+$ php composer require softonic/laravel-amqp
 ```
 
 ## Integration
@@ -35,7 +34,7 @@ $ php composer require bschmitt/laravel-amqp
 ### Lumen
 
 Create a **config** folder in the root directory of your Lumen application and copy the content
-from **vendor/bschmitt/laravel-amqp/config/amqp.php** to **config/amqp.php**.
+from **vendor/softonic/laravel-amqp/config/amqp.php** to **config/amqp.php**.
 
 Adjust the properties to your needs.
 
@@ -79,7 +78,7 @@ Register the Lumen Service Provider in **bootstrap/app.php**:
 //...
 
 $app->configure('amqp');
-$app->register(Bschmitt\Amqp\LumenServiceProvider::class);
+$app->register(Softonic\Amqp\LumenServiceProvider::class);
 
 //...
 ```
@@ -89,7 +88,7 @@ Add Facade Support for Lumen 5.2+
 ```php
 //...
 $app->withFacades(true, [
-    'Bschmitt\Amqp\Facades\Amqp' => 'Amqp',
+    'Softonic\Amqp\Facades\Amqp' => 'Amqp',
 ]);
 //...
 ```
@@ -100,11 +99,11 @@ $app->withFacades(true, [
 Open **config/app.php** and add the service provider and alias:
 
 ```php
-'Bschmitt\Amqp\AmqpServiceProvider',
+'Softonic\Amqp\AmqpServiceProvider',
 ```
 
 ```php
-'Amqp' => 'Bschmitt\Amqp\Facades\Amqp',
+'Amqp' => 'Softonic\Amqp\Facades\Amqp',
 ```
 
 
